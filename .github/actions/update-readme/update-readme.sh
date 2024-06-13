@@ -48,13 +48,32 @@ update_readme() {
   # Determine the start and end markers based on the script filename
   local start_marker="${script_filename}-start"
   local end_marker="${script_filename}-end"
-  # Escape slashes in the script_filename for sed command
-  escaped_script_filename=$(echo "$script_filename" | sed 's/\//\\\//g')
+
+  # Use awk to process the README.md and insert the file content between markers
+  awk -v start_marker="$start_marker" -v end_marker="$end_marker" -v script_type="$script_type" -v script_filename="$script_filename" '
+  BEGIN {
+      # Read the file content into a variable
+      while ((getline line < script_filename) > 0) {
+          content = content line "\n"
+      }
+      close(script_filename)
+  }
+  {
+      print
+      if ($0 ~ start_marker) {
+          print "```" script_type
+          print content
+      }
+      if ($0 ~ end_marker) {
+          print "```"
+      }
+  }
+  ' README.md > README.tmp && mv README.tmp README.md
 
   # Replace placeholders in README.md while keeping the placeholders
-  sed -i -e "/${start_marker}/,/${end_marker}/ {//!d; /${start_marker}/r ${escaped_script_filename}" -e '}' README.md
-  sed -i -e "/${start_marker}/a\\\`\`\`${script_type}" README.md
-  sed -i -e "/${end_marker}/i\\\`\`\`" README.md
+#  sed -i -e "/${start_marker}/,/${end_marker}/ {//!d; /${start_marker}/r ${escaped_script_filename}" -e '}' README.md
+# sed -i -e "/${start_marker}/a\\\`\`\`${script_type}" README.md
+#  sed -i -e "/${end_marker}/i\\\`\`\`" README.md
 }
 
 # Extract all filenames from lines containing '-start -->' 
