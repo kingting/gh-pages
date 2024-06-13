@@ -16,10 +16,14 @@ This guide provides a quick and precise method to convert a `README.md` file int
 
 Create a new GitHub repository named `my-jekyll-site`.
 
-### 2. Create a GitHub Action in the .github/actions/update-readme directory to automatically update README.md with script files.
+### 2. Create a GitHub Action
+
+Create a GitHub action in the .github/actions/update-readme directory to automatically update README.md with script files.
 
 [Dockerfile](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/Dockerfile)
+
 [action.yaml](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/action.yaml)
+
 [update-readme.sh](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/update-readme.sh)
 
 ### 3. Create Jekyll Setup Script
