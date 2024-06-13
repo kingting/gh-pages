@@ -1,152 +1,270 @@
+# Converting README.md into a GitHub Pages Site
 
-# Docker Quick Start Guide
+## Background
 
-## Introduction
+This guide provides a quick and precise method to convert a `README.md` file into a GitHub Pages site using Jekyll and GitHub Actions. It includes setting up necessary files to configure Jekyll, using a theme, setting up the default layout, and automating the process using GitHub Actions.
 
-This quick start guide provides the basic Docker commands to help you get started with understanding and using Docker. By following this guide, you will learn how to build, tag, push, and manage Docker images and containers. You can actually run the commands in the examples after cloning this repository.
+## Prerequisites
 
-## Build the Image
-```bash
-docker build -t <image_name>:<tag> .
-```
-Example:
-```bash
-docker build -t myapp:latest .
-```
+- GitHub account
+- Basic knowledge of Git and Markdown
+- Ruby and Bundler installed on your local machine (for local testing)
 
-## Tag the Image
-```bash
-docker tag <image_name>:<tag> <registry_url>/<namespace>/<image_name>:<tag>
-```
-Example:
-```bash
-docker tag myapp:latest myregistrydomain.com/myrepo/myapp:latest
-```
+## Setup Steps
 
-## Push the Image to a Registry
-```bash
-docker push <registry_url>/<namespace>/<image_name>:<tag>
-```
-Example:
-```bash
-docker push myregistrydomain.com/myrepo/myapp:latest
-```
+### 1. Create Repository
 
-## Run a Shell in the Container
-```bash
-docker run -it <image_name> /bin/bash
-```
-Example:
-```bash
-docker run -it myapp:latest /bin/bash
-```
+Create a new GitHub repository named `my-jekyll-site`.
 
-## Install Docker Registry in a Locked-Down Machine
-### Pull the Registry Image
-```bash
-docker pull registry:2
-```
+### 2. Create Setup Script
 
-### Save the Registry Image to a Tar File
-```bash
-docker save -o registry.tar registry:2
-```
+Create a file named `setup-jekyll-site.sh` in the `.github/scripts/` directory with the following content:
 
-### Load the Registry Image from a Tar File
 ```bash
-docker load -i registry.tar
-```
+#!/bin/bash
+# File: setup-jekyll-site.sh
 
-### Run the Registry Container
-```bash
-docker run -d -p 5000:5000 --restart=always --name registry registry:2
-```
+# Create Gemfile
+cat <<EOF > Gemfile
+source 'https://rubygems.org'
 
-## List All Containers (Running and Stopped)
-```bash
-docker ps -a
-```
+gem "jekyll"
+gem "github-pages"
+gem "jekyll-theme-cayman"
 
-## List Running Containers
-```bash
-docker ps
-```
+group :jekyll_plugins do
+  gem "jekyll-sitemap"
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+end
+EOF
 
-## Stop a Running Container
-```bash
-docker stop <container_id>
-```
-Example:
-```bash
-docker stop my_container
-```
+# Create _config.yml
+cat <<EOF > _config.yml
+title: Technical Insight
+description: A precise guide providing practical, tried and tested examples.
+baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
+show_downloads: true
+url: "https://kingting.github.io" # the base hostname & protocol for your site
 
-## Remove a Stopped Container
-```bash
-docker rm <container_id>
-```
-Example:
-```bash
-docker rm my_container
-```
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
 
-## Remove an Image
-```bash
-docker rmi <image_name>:<tag>
-```
-Example:
-```bash
-docker rmi myapp:latest
-```
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+EOF
 
-## View Logs of a Container
-```bash
-docker logs <container_id>
-```
-Example:
-```bash
-docker logs my_container
-```
+# Create default layout
+mkdir -p _layouts
+cat <<EOF > _layouts/default.html
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+  <meta charset="UTF-8">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  {% include head-custom.html %}
+</head>
+<body>
+  <a id="skip-to-content" href="#content">Skip to the content.</a>
+  <header class="page-header" role="banner">
+    <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+    <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    {% if site.github.is_project_page %}
+      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+    {% endif %}
+    {% if site.show_downloads %}
+      <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+      <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+    {% endif %}
+  </header>
+  <main id="content" class="main-content" role="main">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    {% if site.github.is_project_page %}
+      <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+    {% endif %}
+    <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+  </footer>
+</body>
+</html>
+EOF
 
-## Execute a Command in a Running Container
-```bash
-docker exec -it <container_id> <command>
-```
-Example:
-```bash
-docker exec -it my_container /bin/bash
+# Copy README.md to index.md with front matter
+cat <<EOF > index.md
+---
+layout: default
+title: Docker Quick Start Guide
+---
+EOF
+cat README.md >> index.md
 ```
 
-## View Docker System Information
-```bash
-docker info
+Make the script executable:
+```sh
+chmod +x .github/scripts/setup-jekyll-site.sh
 ```
 
-## Prune Unused Docker Objects
-```bash
-docker system prune
+### 3. Configure GitHub Actions
+
+Create a GitHub Actions workflow file named `jekyll.yml` in `.github/workflows/` with the following content:
+
+```yaml
+#-------------------------------------------------------------------------------------
+# Workflow for building and deploying a Jekyll site to GitHub Pages
+# 1. Copy the README.md to index.md
+# 2. Create Jekyll site
+# 3. Deploy to GitHub Pages
+#-------------------------------------------------------------------------------------
+
+name: Deploy Jekyll site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Jekyll Site
+        run: |
+          .github/scripts/setup-jekyll-site.sh
+          cat _config.yml
+          cat _layouts/default.html
+          cat Gemfile
+          cat index.md
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Debug Jekyll Build
+        run: |
+          echo "Listing files in the root directory:"
+          ls -al
+          echo "Listing files in the _site directory:"
+          ls -al _site
+
+      - name: Upload artifact
+        # Automatically uploads an artifact from the './_site' directory by default
+        uses: actions/upload-pages-artifact@v3
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 ```
 
-## Remove All Docker Images
-```bash
-# Stop all running containers
-docker stop $(docker ps -aq)
+### 4. Test Locally
 
-# Remove all containers
-docker rm $(docker ps -aq)
+To test the site locally with the `baseurl` set:
 
-# Remove all images
-docker rmi $(docker images -q)
+1. Build the site:
+
+```sh
+bundle exec jekyll build --baseurl="/my-jekyll-site"
 ```
 
-### Notes
+2. Serve the site:
 
-- `<image_name>`: Name of the Docker image.
-- `<tag>`: Tag of the Docker image, often a version number (default is `latest`).
-- `<container_id>`: ID or name of the Docker container.
-- `<registry_url>`: URL of the Docker registry (e.g., `myregistrydomain.com`).
-- `<namespace>`: Namespace in the registry (e.g., `myrepo`).
-- `<host_port>`: Port on the host machine.
-- `<container_port>`: Port inside the Docker container.
-- `<output_file>`: Name of the tar file to save the image.
-- `<input_file>`: Name of the tar file to load the image from.
+```sh
+bundle exec jekyll serve --baseurl="/my-jekyll-site"
+```
+
+Open your browser and go to `http://localhost:4000/my-jekyll-site/` to verify.
+
+### 5. Deploy to GitHub Pages
+
+1. Commit and push your changes to the `main` branch:
+
+```sh
+git add .
+git commit -m "Set up Jekyll site with GitHub Actions"
+git push origin main
+```
+
+2. Go to your repository settings on GitHub, navigate to the "GitHub Pages" section, and ensure the source is set to the `gh-pages` branch.
+
+Your site should now be live at `https://username.github.io/my-jekyll-site`.
+
+## Additional Customizations
+
+Feel free to customize your Jekyll site by editing the `_config.yml`, adding new pages, and modifying the styles in `assets/css/style.scss`. 
+
+To add custom styles, create `assets/css/style.scss` with the following content:
+
+```scss
+---
+---
+
+@import "{{ site.theme }}";
+
+// Your custom styles go here
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+```
+
+## References
+
+- [Jekyll Documentation](https://jekyllrb.com/docs/)
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+By following these steps, you can convert a `README.md` into a fully functional GitHub Pages site, automate the build and deployment process using GitHub Actions, and further customize your site as needed.
+```
+
+This
+
+ README.md file provides a detailed guide on setting up a GitHub repository to convert a `README.md` into a GitHub Pages site using Jekyll and GitHub Actions. It includes a setup script, workflow configuration, and instructions for local testing and deployment.
