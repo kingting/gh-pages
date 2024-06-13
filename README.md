@@ -20,6 +20,7 @@ Create a new GitHub repository named `my-jekyll-site`.
 
 Create a file named `setup-jekyll-site.sh` in the `.github/scripts/` directory with the following content:
 
+<!-- .github/scripts/setup-jekyll-site.sh-start -->
 ```bash
 #!/bin/bash
 # File: setup-jekyll-site.sh
@@ -108,6 +109,7 @@ title: Docker Quick Start Guide
 EOF
 cat README.md >> index.md
 ```
+<!-- .github/scripts/setup-jekyll-site.sh-end -->
 
 Make the script executable:
 ```sh
@@ -116,8 +118,8 @@ chmod +x .github/scripts/setup-jekyll-site.sh
 
 ### 3. Configure GitHub Actions
 
-Create a GitHub Actions workflow file named `jekyll.yml` in `.github/workflows/` with the following content:
-
+Create a GitHub Actions workflow file named `gh-pages.yml` in `.github/workflows/` with the following content:
+<!-- .github/workflows/gh-pages.yml-start -->
 ```yaml
 #-------------------------------------------------------------------------------------
 # Workflow for building and deploying a Jekyll site to GitHub Pages
@@ -204,6 +206,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
+<!-- .github/workflows/gh-pages.yml-end -->
 
 ### 4. Test Locally
 
