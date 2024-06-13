@@ -18,8 +18,8 @@ EOF
 cat <<EOF > _config.yml
 title: Docker Quick Start Guide
 description: A brief description of your site
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yourusername.github.io" # the base hostname & protocol for your site
+baseurl: "gh-pages" # the subpath of your site, e.g. /blog
+url: "https://kingting.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
