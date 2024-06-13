@@ -1,4 +1,6 @@
 #!/bin/bash
+# File: setup-jekyll-siste.sh
+#
 
 # Create Gemfile
 cat <<EOF > Gemfile
@@ -6,6 +8,7 @@ source 'https://rubygems.org'
 
 gem "jekyll"
 gem "github-pages"
+gem "jekyll-theme-cayman"
 
 group :jekyll_plugins do
   gem "jekyll-sitemap"
@@ -16,14 +19,14 @@ EOF
 
 # Create _config.yml
 cat <<EOF > _config.yml
-title: Docker Quick Start Guide
-description: A brief description of your site
-baseurl: "gh-pages" # the subpath of your site, e.g. /blog
+title: Technical Insight
+description: A precise guide offering practical examples,up-to-date information, tried and tested.
+baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
 url: "https://kingting.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-cayman
 
 plugins:
   - jekyll-feed
@@ -54,3 +57,11 @@ cat <<EOF > _layouts/default.html
 </html>
 EOF
 
+# Copy README.md to index.md with front matter
+cat <<EOF > index.md
+---
+layout: default
+title: Docker Quick Start Guide
+---
+EOF
+cat README.md >> index.md

@@ -35,13 +35,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create necessary files
+      - name: Setup Jekyll Site
         run: |
-          chmod +x .github/scripts/generate-files.sh
-          .github/scripts/generate-files.sh
+          chmod +x .github/scripts/setup-jekyll-site.sh
+          .github/scripts/setup-jekyll-site.sh
           cat _config.yml
           cat _layouts/default.html
           cat Gemfile
+          cat index.md
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -49,15 +50,6 @@ jobs:
           ruby-version: '3.1' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
-
-      - name: Copy README.md to index.md with front matter
-        run: |
-          echo "---" > index.md
-          echo "layout: default" >> index.md
-          echo "title: Docker Quick Start Guide" >> index.md
-          echo "---" >> index.md
-          cat README.md >> index.md
-          cat index.md
 
       - name: Setup Pages
         id: pages
