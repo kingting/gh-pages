@@ -99,7 +99,7 @@ EOF
 cat <<EOF > index.md
 ---
 layout: default
-title: Automated Publishing to GitHub Pages with Scripts and GitHub Actions
+title: Automated GitHub Pages using Jekyll and GitHub Actions
 ---
 EOF
 cat README.md >> index.md
