@@ -99,7 +99,7 @@ EOF
 cat <<EOF > index.md
 ---
 layout: default
-title: Docker Quick Start Guide
+title: Automated Publishing to GitHub Pages with Scripts and GitHub Actions
 ---
 EOF
 cat README.md >> index.md
