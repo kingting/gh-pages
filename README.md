@@ -43,9 +43,9 @@ EOF
 cat <<EOF > _config.yml
 title: Technical Insight
 description: A precise guide providing practical, tried and tested examples.
-baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
+baseurl: "/my-jekyll-site-pages" # the subpath of your site, e.g. /blog
 show_downloads: true
-url: "https://kingting.github.io" # the base hostname & protocol for your site
+url: "https://username.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
@@ -233,7 +233,7 @@ git commit -m "Set up Jekyll site with GitHub Actions"
 git push origin main
 ```
 
-2. Go to your repository settings on GitHub, navigate to the "GitHub Pages" section, and ensure the source is set to the `gh-pages` branch.
+2. Go to your repository settings on GitHub, navigate to "Pages" under "Code and automation," and ensure the Source under "GitHub Pages" - "Build and Deployment" is set to "GitHub Actions.
 
 Your site should now be live at `https://username.github.io/my-jekyll-site`.
 
@@ -262,9 +262,4 @@ body {
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 
-By following these steps, you can convert a `README.md` into a fully functional GitHub Pages site, automate the build and deployment process using GitHub Actions, and further customize your site as needed.
-```
-
-This
-
- README.md file provides a detailed guide on setting up a GitHub repository to convert a `README.md` into a GitHub Pages site using Jekyll and GitHub Actions. It includes a setup script, workflow configuration, and instructions for local testing and deployment.
+By following these steps, any changes made to README.md in your repository will automatically be reflected on your GitHub Pages site. This GitHub Actions workflow can also be enhanced to publish README.md as content or a blog on other websites, if desired. This approach saves time by automating the publication process across multiple platforms and simplifies the management of your blog content.
