@@ -37,8 +37,8 @@ jobs:
 
       - name: Create necessary files
         run: |
-          chmod +x .github/scripts/generate_files.sh
-          .github/scripts/generate_files.sh
+          chmod +x .github/scripts/generate-files.sh
+          .github/scripts/generate-files.sh
           cat _config.yml
           cat _layouts/default.yml
           cat Gemfile
