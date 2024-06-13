@@ -16,7 +16,13 @@ This guide provides a quick and precise method to convert a `README.md` file int
 
 Create a new GitHub repository named `my-jekyll-site`.
 
-### 2. Create Setup Script
+### 2. Create a GitHub Action in the .github/actions/update-readme directory to automatically update README.md with script files.
+
+[Dockerfile](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/Dockerfile)
+[action.yaml](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/action.yaml)
+[update-readme.sh](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/update-readme.sh)
+
+### 3. Create Jekyll Setup Script
 
 Create a file named `setup-jekyll-site.sh` in the `.github/scripts/` directory with the following content:
 
@@ -224,7 +230,7 @@ Make the script executable:
 chmod +x .github/scripts/setup-jekyll-site.sh
 ```
 
-### 3. Configure GitHub Actions
+### 4. Configure GitHub Actions Workflows
 
 Create a GitHub Actions workflow file named `gh-pages.yml` in `.github/workflows/` with the following content:
 <!-- .github/workflows/gh-pages.yml-start -->
@@ -403,7 +409,7 @@ jobs:
 <!-- .github/workflows/gh-pages.yml-end -->
 ```
 
-### 4. Test Locally
+### 5. Test Locally
 
 To test the site locally with the `baseurl` set:
 
@@ -421,8 +427,7 @@ bundle exec jekyll serve --baseurl="/my-jekyll-site"
 
 Open your browser and go to `http://localhost:4000/my-jekyll-site/` to verify.
 
-### 5. Deploy to GitHub Pages
-
+### 6. Commit changes to README.md, and GitHub Pages will be automatically updated.
 1. Commit and push your changes to the `main` branch:
 
 ```sh
