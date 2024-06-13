@@ -50,9 +50,13 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
 
-      - name: Copy README.md to index.md
+      - name: Copy README.md to index.md with front matter
         run: |
-          echo "---\nlayout: default\ntitle: Docker Quick Start Guide\n---\n$(cat README.md)" > index.md
+          echo "---" > index.md
+          echo "layout: default" >> index.md
+          echo "title: Docker Quick Start Guide" >> index.md
+          echo "---" >> index.md
+          cat README.md >> index.md
           cat index.md
 
       - name: Setup Pages
