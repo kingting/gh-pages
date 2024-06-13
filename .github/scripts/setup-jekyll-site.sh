@@ -1,6 +1,6 @@
 #!/bin/bash
-# File: setup-jekyll-siste.sh
-#
+# File: setup-jekyll-site.sh
+#----------------------------------------------------------------------------------
 
 # Create Gemfile
 cat <<EOF > Gemfile
@@ -17,13 +17,21 @@ group :jekyll_plugins do
 end
 EOF
 
+#----------------------------------------------------------------------------------
 # Create _config.yml
+#----------------------------------------------------------------------------------
 cat <<EOF > _config.yml
 title: Technical Insight
 description: A precise guide providing practical, tried and tested examples.
 baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
 show_downloads: true
 url: "https://kingting.github.io" # the base hostname & protocol for your site
+github:
+  is_project_page: true
+  repository_url: https://github.com/kingting/gh-pages
+  repository_name: gh-pages 
+  owner_url: https://github.com/kingting
+  owner_name: kingting
 
 # Build settings
 markdown: kramdown
@@ -35,7 +43,9 @@ plugins:
   - jekyll-seo-tag
 EOF
 
+#----------------------------------------------------------------------------------
 # Create default layout
+#----------------------------------------------------------------------------------
 mkdir -p _layouts
 cat <<EOF > _layouts/default.html
 
@@ -60,6 +70,9 @@ cat <<EOF > _layouts/default.html
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
+      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
       {% endif %}
       {% if site.show_downloads %}
@@ -83,7 +96,9 @@ cat <<EOF > _layouts/default.html
 
 EOF
 
+#----------------------------------------------------------------------------------
 # Copy README.md to index.md with front matter
+#----------------------------------------------------------------------------------
 cat <<EOF > index.md
 ---
 layout: default
