@@ -20,8 +20,9 @@ EOF
 # Create _config.yml
 cat <<EOF > _config.yml
 title: Technical Insight
-description: A precise guide offering practical examples,up-to-date information, tried and tested.
+description: A precise guide providing practical, tried and tested examples.
 baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
+show_downloads: true
 url: "https://kingting.github.io" # the base hostname & protocol for your site
 
 # Build settings
