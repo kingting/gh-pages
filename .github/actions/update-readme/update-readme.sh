@@ -48,9 +48,11 @@ update_readme() {
   # Determine the start and end markers based on the script filename
   local start_marker="${script_filename}-start"
   local end_marker="${script_filename}-end"
+  # Escape slashes in the script_filename for sed command
+  escaped_script_filename=$(echo "$script_filename" | sed 's/\//\\\//g')
 
   # Replace placeholders in README.md while keeping the placeholders
-  sed -i -e "/${start_marker}/,/${end_marker}/ {//!d; /${start_marker}/r ${script_filename}" -e '}' README.md
+  sed -i -e "/${start_marker}/,/${end_marker}/ {//!d; /${start_marker}/r ${escaped_script_filename}" -e '}' README.md
   sed -i -e "/${start_marker}/a\\\`\`\`${script_type}" README.md
   sed -i -e "/${end_marker}/i\\\`\`\`" README.md
 }
