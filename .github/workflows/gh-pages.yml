@@ -34,32 +34,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create Gemfile
+
+      - name: Create necessary files
         run: |
-          cat <<EOF > Gemfile
-            source 'https://rubygems.org'
+          chmod +x .github/scripts/generate_files.sh
+          .github/scripts/generate_files.sh
 
-            gem "jekyll"
-            gem "github-pages"
-
-            group :jekyll_plugins do
-          gem "jekyll-sitemap"
-          gem "jekyll-feed"
-          gem "jekyll-seo-tag"
-          end
-          EOF
       - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+
       - name: Copy README.md to index.md
         run: |
           echo "---\nlayout: default\ntitle: Docker Quick Start Guide\n---\n$(cat README.md)" > index.md
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
