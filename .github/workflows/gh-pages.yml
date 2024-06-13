@@ -37,8 +37,11 @@ jobs:
 
       - name: Create necessary files
         run: |
-          chmod +x .github/scripts/generate-files.sh
-          .github/scripts/generate-files.sh
+          chmod +x .github/scripts/generate_files.sh
+          .github/scripts/generate_files.sh
+          cat _config.yml
+          cat _layouts/default.yml
+          cat Gemfile
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -50,6 +53,7 @@ jobs:
       - name: Copy README.md to index.md
         run: |
           echo "---\nlayout: default\ntitle: Docker Quick Start Guide\n---\n$(cat README.md)" > index.md
+          cat index.md
 
       - name: Setup Pages
         id: pages
@@ -61,9 +65,12 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: List website
+      - name: Debug Jekyll Build
         run: |
-          ls -al ./_site
+          echo "Listing files in the root directory:"
+          ls -al
+          echo "Listing files in the _site directory:"
+          ls -al _site
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
@@ -80,3 +87,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
