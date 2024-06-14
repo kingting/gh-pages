@@ -26,7 +26,7 @@ Create a new GitHub repository named `gh-pages` or clone this repo.
 
 ### 2. Create a script to prepare for Jekyll build
 
-Create a script `.github/scripts/init-jekyll.sh` to convert `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `index.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
+Create a script `[.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh)` to convert `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `index.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
 
 <!-- init-jekyll.sh: [View init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) -->
 <a href="https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh" class="repo-link">View init-jekyll.sh</a>
