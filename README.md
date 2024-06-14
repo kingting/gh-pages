@@ -26,23 +26,16 @@ This guide provides a quick and precise method to publish a `README.md` file int
 
 Create a new GitHub repository named `gh-pages`.
 
-### 2. Create a GitHub Action to prepare for Jekyll build
+### 2. Create a script to prepare for Jekyll build
 
-Create a GitHub action in the `.github/actions/init-jekyll` directory to automatically update `README.md` with script files. This step includes converting `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `README.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
+Create a script `.github/scripts/init-jekyll.sh` to convert `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `index.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
 
-<button onclick="fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile')">Show Dockerfile</button>
-<div id="script-content-dockerfile" style="display:none; white-space: pre-wrap;"></div>
-
-<button onclick="fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml')">Show action.yaml</button>
-<div id="script-content-action" style="display:none; white-space: pre-wrap;"></div>
-
-<button onclick="fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh')">Show update-readme.sh</button>
-<div id="script-content-update-readme" style="display:none; white-space: pre-wrap;"></div>
-
+<button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')">Show init-jekyll.sh</button>
+<div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
-Create a GitHub Actions workflow file named `gh-pages.yml` in `.github/workflows/` with the following content:
+Create a GitHub Actions workflow at .github/workflows/gh-pages.yml that includes build and deployment jobs for GitHub Pages.
 
 <button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')">Show gh-pages.yml</button>
 <div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
