@@ -18,19 +18,17 @@ Create a new GitHub repository named `my-jekyll-site`.
 
 ### 2. Create a GitHub Action
 
-Create a GitHub action in the .github/actions/update-readme directory to automatically update README.md with script files.
+[Dockerfile](javascript:fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile'))
 
-[Dockerfile](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/Dockerfile)
+[action.yaml](javascript:fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml'))
 
-[action.yaml](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/action.yaml)
-
-[update-readme.sh](https://github.com/kingting/gh-pages/blob/main/.github/actions/update-readme/update-readme.sh)
+[update-readme.sh](javascript:fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh'))
 
 ### 3. Create Jekyll Setup Script
 
 Create a file named `setup-jekyll-site.sh` in the `.github/scripts/` directory with the following content:
 
-setup-jekyll-site.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/setup-jekyll-site.sh)
+[setup-jekyll-site.sh](javascript:fetchAndDisplayScript('script-content-setup-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/setup-jekyll-site.sh'))
 
 Make the script executable:
 ```sh
@@ -99,3 +97,37 @@ body {
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 
 By following these steps, any changes made to README.md in your repository will automatically be reflected on your GitHub Pages site. This GitHub Actions workflow can also be enhanced to publish README.md as content or a blog on other websites, if desired. This approach saves time by automating the publication process across multiple platforms and simplifies the management of your blog content.
+
+{% raw %}
+
+<script>
+function fetchAndDisplayScript(containerId, scriptUrl) {
+  var container = document.getElementById(containerId);
+
+  if (container.style.display === "none" || container.style.display === "") {
+    fetch(scriptUrl)
+      .then(response => response.text())
+      .then(data => {
+        container.innerHTML = '<pre><code>' + data + '</code></pre>';
+        container.style.display = "block";
+      })
+      .catch(error => {
+        console.error('Error fetching the script:', error);
+        container.innerHTML = '<pre><code>Error fetching the script.</code></pre>';
+        container.style.display = "block";
+      });
+  } else {
+    container.style.display = "none";
+  }
+}
+</script>
+
+{% endraw %}
+
+
+<div id="script-content-dockerfile" style="display:none; white-space: pre-wrap;"></div>
+<div id="script-content-action" style="display:none; white-space: pre-wrap;"></div>
+<div id="script-content-update-readme" style="display:none; white-space: pre-wrap;"></div>
+<div id="script-content-setup-jekyll" style="display:none; white-space: pre-wrap;"></div>
+<div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
+```

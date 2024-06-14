@@ -33,10 +33,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Jekyll Site
+      # Jekyll only convert index.md to index.html
+      - name: Convert README.md to index.md 
         run: |
-          chmod +x .github/scripts/setup-jekyll-site.sh
-          .github/scripts/setup-jekyll-site.sh
+          chmod +x .github/scripts/README2index.sh
+          .github/scripts/README2index.sh
           cat _config.yml
           cat _layouts/default.html
           cat Gemfile

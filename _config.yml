@@ -1,0 +1,23 @@
+#----------------------------------------------------------------------------------
+# _config.yml
+#----------------------------------------------------------------------------------
+title: Technical Insight
+description: A precise guide providing practical, tried and tested examples.
+baseurl: "/gh-pages" # the subpath of your site, e.g. /blog
+show_downloads: true
+url: "https://kingting.github.io" # the base hostname & protocol for your site
+github:
+  is_project_page: true
+  repository_url: https://github.com/kingting/gh-pages
+  repository_name: gh-pages
+  owner_url: https://github.com/kingting
+  owner_name: kingting
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
