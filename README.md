@@ -34,11 +34,6 @@ Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
 <span class="page-button-container">
-  <button data-script-name="init-jekyll.sh" onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/script.js', this)" class="page-button">Show init-jekyll.sh</button>
-</span>
-<div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
-
-<span class="page-button-container">
   <button data-script-name="script.js" onclick="fetchAndDisplayScript('script-content-script', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/script.js', this)" class="page-button">Show script.js</button>
 </span>
 <div id="script-content-script" style="display:none; white-space: pre-wrap;"></div>
