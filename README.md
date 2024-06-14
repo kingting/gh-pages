@@ -30,7 +30,7 @@ Create a script `.github/scripts/init-jekyll.sh` to convert `README.md` to `inde
 
 <!-- init-jekyll.sh: [View init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) -->
 <a href="https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh" class="repo-link">View init-jekyll.sh</a>
-<button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')" class="page-button">Show init-jekyll.sh</button>
+<button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')" class="page-button hidden-repo">Show init-jekyll.sh</button>
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
@@ -39,8 +39,9 @@ Create a GitHub Actions workflow at .github/workflows/gh-pages.yml that includes
 
 <!-- gh-pages.yml: [View gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) -->
 <a href="https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml" class="repo-link">View gh-pages.yml</a>
-<button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')" class="page-button">Show gh-pages.yml</button>
+<button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')" class="page-button hidden-repo">Show gh-pages.yml</button>
 <div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
+
 
 ### 4. Test Locally
 

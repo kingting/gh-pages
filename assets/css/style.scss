@@ -35,3 +35,8 @@ h1, h2, h3 {
   display: none; /* Hide links on GitHub Pages */
 }
 
+/* Hide buttons in GitHub repository view */
+.hidden-repo {
+  display: none;
+}
+
