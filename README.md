@@ -28,26 +28,19 @@ Create a new GitHub repository named `gh-pages` or clone this repo.
 
 Create a script `.github/scripts/init-jekyll.sh` to convert `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `index.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
 
-{% if site.github %}
-<!-- Links for GitHub repository view -->
-**init-jekyll.sh**: [View init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh)
-{% else %}
-<!-- Buttons for GitHub Pages view -->
-<button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')">Show init-jekyll.sh</button>
+<!-- init-jekyll.sh: [View init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) -->
+<a href="https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh" class="repo-link">View init-jekyll.sh</a>
+<button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')" class="page-button">Show init-jekyll.sh</button>
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
-{% endif %}
 
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
 Create a GitHub Actions workflow at .github/workflows/gh-pages.yml that includes build and deployment jobs for GitHub Pages.
 
-{% if site.github %}
-<!-- Links for GitHub repository view -->
-**gh-pages.yml**: [View gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml)
-{% else %}
-<button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')">Show gh-pages.yml</button>
+<!-- gh-pages.yml: [View gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) -->
+<a href="https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml" class="repo-link">View gh-pages.yml</a>
+<button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')" class="page-button">Show gh-pages.yml</button>
 <div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
-{% endif %}
 
 ### 4. Test Locally
 
