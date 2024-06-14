@@ -13,7 +13,9 @@ cat README.md >> index.md
 #----------------------------------------------------------------------------------
 # Include javascript 
 #----------------------------------------------------------------------------------
+echo "{% raw %}"  >> index.md
 cat .github/scripts/script.js >> index.md
+echo "{% endraw %}"  >> index.md
 
 #----------------------------------------------------------------------------------
 # Additional code or info to enhance the blog

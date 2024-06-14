@@ -1,3 +1,4 @@
+<script>
 function fetchAndDisplayScript(containerId, scriptUrl) {
   var container = document.getElementById(containerId);
 
@@ -17,3 +18,4 @@ function fetchAndDisplayScript(containerId, scriptUrl) {
     container.style.display = "none";
   }
 }
+</script>
