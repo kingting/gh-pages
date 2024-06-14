@@ -9,3 +9,6 @@ title: Automated GitHub Pages using Jekyll and GitHub Actions
 ---
 EOF
 cat README.md >> index.md
+#----------------------------------------------------------------------------------
+# Additional code or info to enhance the blog
+#----------------------------------------------------------------------------------

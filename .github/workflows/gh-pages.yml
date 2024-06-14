@@ -33,11 +33,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Jekyll only convert index.md to index.html
-      - name: Convert README.md to index.md 
+      # Convert README.md to index.md and any other additional data	
+      - name: Initialise repo to allow Jekyll to build 
         run: |
-          chmod +x .github/scripts/README2index.sh
-          .github/scripts/README2index.sh
+          chmod +x .github/scripts/init-jekyll.sh
+          .github/scripts/init-jekyll.sh
           cat _config.yml
           cat _layouts/default.html
           cat Gemfile

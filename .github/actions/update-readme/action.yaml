@@ -1,6 +1,0 @@
-name: 'Update README with Script Content'
-description: 'Update README.md with content from script files'
-inputs: {}
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
