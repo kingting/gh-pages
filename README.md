@@ -16,24 +16,21 @@ This guide provides a quick and precise method to convert a `README.md` file int
 
 Create a new GitHub repository named `my-jekyll-site`.
 
-### 2. Create a GitHub Action
+### 2. Create a GitHub Action to convert README.md to index.md
 
-[Dockerfile](javascript:fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile'))
+<button onclick="fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile')">Show Dockerfile</button>
 
-[action.yaml](javascript:fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml'))
+<button onclick="fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml')">Show action.yaml</button>
 
-[update-readme.sh](javascript:fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh'))
+<button onclick="fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh')">Show update-readme.sh</button>
 
 ### 3. Create Jekyll Setup Script
 
-Create a file named `setup-jekyll-site.sh` in the `.github/scripts/` directory with the following content:
+Gemfile
+layouts/defaults.html
+_config.yml
+assets/css/style.css
 
-[setup-jekyll-site.sh](javascript:fetchAndDisplayScript('script-content-setup-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/setup-jekyll-site.sh'))
-
-Make the script executable:
-```sh
-chmod +x .github/scripts/setup-jekyll-site.sh
-```
 ### 4. Configure GitHub Actions Workflows
 
 Create a GitHub Actions workflow file named `gh-pages.yml` in `.github/workflows/` with the following content:
