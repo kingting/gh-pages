@@ -18,11 +18,14 @@ Create a new GitHub repository named `my-jekyll-site`.
 
 ### 2. Create a GitHub Action to convert README.md to index.md
 
-<button onclick="fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile')">Show Dockerfile</button>
+<button onclick="fetchAndDisplayScript('script-content-dockerfile', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/Dockerfile')">Dockerfile</button>
+<div id="script-content-dockerfile" style="display:none; white-space: pre-wrap;"></div>
 
-<button onclick="fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml')">Show action.yaml</button>
+<button onclick="fetchAndDisplayScript('script-content-action', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/action.yaml')">action.yaml</button>
+<div id="script-content-action" style="display:none; white-space: pre-wrap;"></div>
 
-<button onclick="fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh')">Show update-readme.sh</button>
+<button onclick="fetchAndDisplayScript('script-content-update-readme', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/actions/update-readme/update-readme.sh')">update-readme.sh</button>
+<div id="script-content-update-readme" style="display:none; white-space: pre-wrap;"></div>
 
 ### 3. Create Jekyll Setup Script
 
@@ -122,9 +125,3 @@ function fetchAndDisplayScript(containerId, scriptUrl) {
 {% endraw %}
 
 
-<div id="script-content-dockerfile" style="display:none; white-space: pre-wrap;"></div>
-<div id="script-content-action" style="display:none; white-space: pre-wrap;"></div>
-<div id="script-content-update-readme" style="display:none; white-space: pre-wrap;"></div>
-<div id="script-content-setup-jekyll" style="display:none; white-space: pre-wrap;"></div>
-<div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
-```
