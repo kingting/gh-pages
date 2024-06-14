@@ -2,7 +2,7 @@
 
 ## Background
 
-This guide provides a quick and precise method to convert a `README.md` file into a GitHub Pages site using Jekyll and GitHub Actions. It includes setting up necessary files to configure Jekyll, using a theme, setting up the default layout, and automating the process using GitHub Actions.
+This guide provides a quick and precise method to publish a `README.md` file into a GitHub Pages site using Jekyll and GitHub Actions. It includes setting up necessary files to configure Jekyll, and automating the publishing process using GitHub Actions.
 
 ## Prerequisites
 
