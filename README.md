@@ -1,4 +1,3 @@
-```markdown
 # Publishing README.md into a GitHub Pages Site
 
 ## Background
@@ -176,6 +175,3 @@ function fetchAndDisplayScript(containerId, scriptUrl) {
 }
 </script>
 {% endraw %}
-```
-
-By including a detailed description of the step to convert `README.md` to `index.md`, this updated `README.md` ensures that readers understand the importance of this step and how it can be used to enhance their blogging experience on GitHub Pages using Jekyll and GitHub Actions.
