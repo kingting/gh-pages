@@ -33,6 +33,11 @@ Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-
 </span>
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
+<span class="page-button-container">
+  <button data-script-name="script.js" onclick="fetchAndDisplayScript('script-content-script', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/script.js', this)" class="page-button">Show script.js</button>
+</span>
+<div id="script-content-script" style="display:none; white-space: pre-wrap;"></div>
+
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
 Create a GitHub Actions workflow at [.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) that includes build and deployment jobs for GitHub Pages.
