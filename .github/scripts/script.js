@@ -1,12 +1,28 @@
 <script>
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 function fetchAndDisplayScript(containerId, scriptUrl, button) {
   var container = document.getElementById(containerId);
 
   if (container.style.display === "none" || container.style.display === "") {
     fetch(scriptUrl)
-      .then(response => response.text())
+      .then(response => {
+        console.log('Fetching script from:', scriptUrl);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
       .then(data => {
-        container.innerHTML = '<pre><code>' + data + '</code></pre>';
+        console.log('Script fetched successfully:', data);
+        container.innerHTML = '<pre><code>' + escapeHtml(data) + '</code></pre>';
         container.style.display = "block";
         button.textContent = "Hide " + button.getAttribute('data-script-name');
       })
@@ -22,5 +38,4 @@ function fetchAndDisplayScript(containerId, scriptUrl, button) {
   }
 }
 </script>
-
 
