@@ -55,11 +55,11 @@ Build the site:
 ```sh
 ./.github/scripts/init-jekyll.sh
 bundle exec jekyll build --baseurl="/gh-pages"
+rm index.md
 ```
 
 Serve the site:
 ```sh
-cd _site
 bundle exec jekyll serve --baseurl="/gh-pages"
 ```
 
