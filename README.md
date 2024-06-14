@@ -80,10 +80,12 @@ Your site should now be live at `https://username.github.io/gh-pages`.
 
 ## Additional Customizations
 
-Feel free to customize your Jekyll site by editing the `_config.yml`, adding new pages, and modifying the styles in `assets/css/style.scss`.
+Feel free to customize your Jekyll site by editing the [_config.yml](https://github.com/kingting/gh-pages/blob/main/_config.yml), adding new pages, and modifying the styles in [assets/css/style.scss](https://github.com/kingting/gh-pages/blob/main/assets/css/style.scss).
 
-To add custom styles, create `assets/css/style.scss` with the following content:
-
+<span class="page-button-container">
+  <button data-script-name="style.scss" onclick="fetchAndDisplayScript('script-content-style', 'https://raw.githubusercontent.com/kingting/gh-pages/main/assets/css/style.scss', this)" class="page-button">Show style.scss</button>
+</span>
+<div id="script-content-style" style="display:none; white-space: pre-wrap;"></div>
 ```scss
 ---
 ---
