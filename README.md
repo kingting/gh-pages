@@ -26,23 +26,17 @@ Create a new GitHub repository named `gh-pages` or clone this repo.
 
 ### 2. Create a script to prepare for Jekyll build
 
-Create a script `[.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh)` to convert `README.md` to `index.md`, which allows Jekyll to process it and generate `index.html`. During this conversion, you can embellish the `index.md` with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience.
+Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) to convert README.md to index.md. This conversion is commonly done because Jekyll can process index.md to generate the main index.html page, which serves as the homepage of your site. During this process, you can embellish index.md with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience. Additionally, the script includes an example of using JavaScript to show and hide code blocks by reader. 
 
-<!-- init-jekyll.sh: [View init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) -->
-<a href="https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh" class="repo-link">View init-jekyll.sh</a>
 <button onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh')" class="page-button">Show init-jekyll.sh</button>
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
-
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
-Create a GitHub Actions workflow at .github/workflows/gh-pages.yml that includes build and deployment jobs for GitHub Pages.
+Create a GitHub Actions workflow at [.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) that includes build and deployment jobs for GitHub Pages.
 
-<!-- gh-pages.yml: [View gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) -->
-<a href="https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml" class="repo-link">View gh-pages.yml</a>
 <button onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml')" class="page-button">Show gh-pages.yml</button>
 <div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
-
 
 ### 4. Test Locally
 
