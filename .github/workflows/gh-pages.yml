@@ -1,5 +1,4 @@
-#
-------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
 # Workflow for building and deploying a Jekyll site to GitHub Pages
 # 1. Copy the README.md to index.md
 # 2. Create Jekyll site
