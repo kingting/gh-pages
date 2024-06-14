@@ -1,6 +1,4 @@
-# Publishing README.md into a GitHub Pages Site
-
-## Background
+# Transforming README.md into a Dynamic GitHub Pages Site
 
 This guide provides a quick and precise method to publish a `README.md` file into a GitHub Pages site using Jekyll and GitHub Actions. It includes setting up necessary files to configure Jekyll and automating the publishing process using GitHub Actions.
 
