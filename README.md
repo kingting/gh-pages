@@ -29,12 +29,12 @@ Create a new GitHub repository named `gh-pages` or clone this repo.
 Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) to convert README.md to index.md. This conversion is commonly done because Jekyll can process index.md to generate the main index.html page, which serves as the homepage of your site. During this process, you can embellish index.md with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience. Additionally, the script includes an example of using JavaScript to show and hide code blocks by reader. This approach allows you to leverage Markdown's simplicity while creating a comprehensive 'index.html' through Jekyll. 
 
 <span class="page-button-container">
-  <button data-script-name="init-jekyll.sh" onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh', this)" class="page-button">Show init-jekyll.sh</button>
+  <button data-script-name="init-jekyll.sh" onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh', this)" class="page-button">Show init-jekyll.sh</button>
 </span>
 <div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
 
 <span class="page-button-container">
-  <button data-script-name="script.js" onclick="fetchAndDisplayScript('script-content-script', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/script.js', this)" class="page-button">Show script.js</button>
+  <button data-script-name="script.js" onclick="fetchAndDisplayScript('script-content-script', 'https://github.com/kingting/gh-pages/blob/main/.github/scripts/script.js', this)" class="page-button">Show script.js</button>
 </span>
 <div id="script-content-script" style="display:none; white-space: pre-wrap;"></div>
 
@@ -43,7 +43,7 @@ Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-
 Create a GitHub Actions workflow at [.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) that includes build and deployment jobs for GitHub Pages.
 
 <span class="page-button-container">
-  <button data-script-name="gh-pages.yml" onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml', this)" class="page-button">Show gh-pages.yml</button>
+  <button data-script-name="gh-pages.yml" onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml', this)" class="page-button">Show gh-pages.yml</button>
 </span>
 <div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
 
@@ -83,7 +83,7 @@ Your site should now be live at `https://username.github.io/gh-pages`.
 Feel free to customize your Jekyll site by editing the [_config.yml](https://github.com/kingting/gh-pages/blob/main/_config.yml), adding new pages, and modifying the styles in [assets/css/style.scss](https://github.com/kingting/gh-pages/blob/main/assets/css/style.scss).
 
 <span class="page-button-container">
-  <button data-script-name="style.scss" onclick="fetchAndDisplayScript('script-content-style', 'https://raw.githubusercontent.com/kingting/gh-pages/main/assets/css/style.scss', this)" class="page-button">Show style.scss</button>
+  <button data-script-name="style.scss" onclick="fetchAndDisplayScript('script-content-style', 'https://github.com/kingting/gh-pages/blob/main/assets/css/style.scss', this)" class="page-button">Show style.scss</button>
 </span>
 <div id="script-content-style" style="display:none; white-space: pre-wrap;"></div>
 ```scss
