@@ -1,0 +1,14 @@
+{
+    "name": "replace-link-action",
+    "version": "1.0.0",
+    "description": "A GitHub Action to replace marked links with buttons in README.md",
+    "main": "replace-link.js",
+    "dependencies": {
+      "fs": "^0.0.1-security",
+      "path": "^0.12.7"
+    },
+    "scripts": {
+      "start": "node replace-link.js"
+    }
+  }
+  
