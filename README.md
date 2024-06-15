@@ -39,6 +39,10 @@ Create a new GitHub repository named `gh-pages` or clone this repo.
 
 Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh) to convert README.md to index.md. This conversion is commonly done because Jekyll can process index.md to generate the main index.html page, which serves as the homepage of your site. During this process, you can embellish index.md with additional information, such as metadata, navigation links, and other content enhancements, to improve the blogging experience. Additionally, the script includes an example of using JavaScript to show and hide code blocks by reader. This approach allows you to leverage Markdown's simplicity while creating a comprehensive 'index.html' through Jekyll. 
 
+<!-- Start Button -->
+[.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh)
+<!-- End Button -->
+
 <span class="page-button-container">
   <button data-script-name="init-jekyll.sh" onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh', this)" class="page-button">Show init-jekyll.sh</button>
 </span>
