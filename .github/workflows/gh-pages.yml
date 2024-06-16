@@ -42,7 +42,7 @@ jobs:
       # Convert README.md to index.md and any other additional data
       - name: Initialise repo to allow Jekyll to build
         run: |
-          cp README.md index.md
+          #cp README.md index.md
           chmod +x .github/scripts/init-jekyll.sh
           .github/scripts/init-jekyll.sh
           cat _config.yml

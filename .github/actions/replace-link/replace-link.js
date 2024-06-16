@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Get input variables from environment variables set by GitHub Actions
-const readmePath = process.env.INPUT_README_PATH;
+const readmePath = process.env['INPUT_README-PATH'];
 
 if (!readmePath) {
   throw new Error("The 'readme-path' input is required");
