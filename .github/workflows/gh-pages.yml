@@ -32,13 +32,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug Environment Variables
+        run: env
+
       - name: Replace links with diplay button in README.md
         uses: ./.github/actions/replace-link
         with:
           readme-path: 'README.md'
-          
-      - name: Debug Environment Variables
-        run: env
 
       # Convert README.md to index.md and any other additional data	
       - name: Initialise repo to allow Jekyll to build 
