@@ -37,6 +37,9 @@ jobs:
         with:
           readme-path: 'README.md'
           
+      - name: Debug Environment Variables
+        run: env
+
       # Convert README.md to index.md and any other additional data	
       - name: Initialise repo to allow Jekyll to build 
         run: |
