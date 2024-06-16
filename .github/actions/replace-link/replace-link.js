@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Get input variables from environment variables set by GitHub Actions
-const readmePath = process.env['INPUT_README-PATH'];
+const readmePath = process.env['INPUT_README_PATH'];
 
 if (!readmePath) {
   throw new Error("The 'readme-path' input is required");
@@ -17,11 +17,11 @@ const endMarker = '<!-- End Button -->';
 
 // Find the section to replace
 const startIndex = content.indexOf(startMarker);
-const endIndex = content.indexOf(endMarker) + endMarker.length;
+const endIndex = content.indexOf(endMarker);
 
 if (startIndex !== -1 && endIndex !== -1) {
   // Extract the link within the markers
-  const sectionContent = content.slice(startIndex + startMarker.length, content.indexOf(endMarker)).trim();
+  const sectionContent = content.slice(startIndex + startMarker.length, endIndex).trim();
   const regex = /\[(.*?)\]\((.*?)\)/;
   const match = sectionContent.match(regex);
 
@@ -35,12 +35,14 @@ if (startIndex !== -1 && endIndex !== -1) {
 <div id="script-content-${scriptName}" style="display:none; white-space: pre-wrap;"></div>
 `;
 
-    // Replace the section with the desired content
-    const newContent = content.slice(0, startIndex + startMarker.length) +
+    // Replace the section with the desired content and remove markers
+    const newContent = content.slice(0, startIndex) +
                        buttonHtml +
-                       content.slice(endIndex);
+                       content.slice(endIndex + endMarker.length);
     
     // Write the updated content back to README.md
     fs.writeFileSync(readmePath, newContent, 'utf8');
   }
+} else {
+  console.log("Markers not found in the content.");
 }
