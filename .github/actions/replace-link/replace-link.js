@@ -5,7 +5,11 @@ const path = require('path');
 const readmePath = process.env['INPUT_README_PATH'];
 
 if (!readmePath) {
+  console.error("The 'readme-path' input is required and not set.");
+  console.error("Available environment variables:", process.env);
   throw new Error("The 'readme-path' input is required");
+} else {
+  console.log(`The path to the README.md file is: ${readmePath}`);
 }
 
 // Read the Markdown file
