@@ -1,8 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-// Get input variables
+// Get input variables from environment variables set by GitHub Actions
 const readmePath = process.env.INPUT_README_PATH;
+
+if (!readmePath) {
+  throw new Error("The 'readme-path' input is required");
+}
 
 // Read the Markdown file
 let content = fs.readFileSync(readmePath, 'utf8');
