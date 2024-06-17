@@ -36,7 +36,7 @@ jobs:
         run: env
 
       - name: Replace links with diplay button in README.md
-        uses: kingting/link-to-button-action@v0.9
+        uses: kingting/link-to-button@main
         with:
           input-file: 'README.md'
           output-file: 'README.md'
