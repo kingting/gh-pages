@@ -36,9 +36,10 @@ jobs:
         run: env
 
       - name: Replace links with diplay button in README.md
-        uses: ./.github/actions/replace-link
+        uses: kingting/link-to-button-action@v0.9
         with:
-          readme-path: 'README.md'
+          input-file: 'README.md'
+          output-file: 'README.md'
 
       # Convert README.md to index.md and any other additional data	
       - name: Initialise repo to allow Jekyll to build 
