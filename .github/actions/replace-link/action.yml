@@ -1,9 +1,0 @@
-name: 'Replace Link with Button'
-description: 'Reads README.md and replaces marked links with buttons'
-inputs:
-  readme-path:
-    description: 'Path to the README.md file'
-    required: true
-runs:
-  using: 'node12'
-  main: 'replace-link.js'
