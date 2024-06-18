@@ -42,25 +42,17 @@ Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-
 <!-- Start Button -->
 [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-pages/blob/main/.github/scripts/init-jekyll.sh)
 <!-- End Button -->
-
-<span class="page-button-container">
-  <button data-script-name="init-jekyll.sh" onclick="fetchAndDisplayScript('script-content-init-jekyll', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/init-jekyll.sh', this)" class="page-button">Show init-jekyll.sh</button>
-</span>
-<div id="script-content-init-jekyll" style="display:none; white-space: pre-wrap;"></div>
-
-<span class="page-button-container">
-  <button data-script-name="script.js" onclick="fetchAndDisplayScript('script-content-script', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/scripts/script.js', this)" class="page-button">Show script.js</button>
-</span>
-<div id="script-content-script" style="display:none; white-space: pre-wrap;"></div>
+<!-- Start Button -->
+[.github/scripts/script.js](https://github.com/kingting/gh-pages/blob/main/.github/scripts/script.js)
+<!-- End Button -->
 
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
 Create a GitHub Actions workflow at [.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) that includes build and deployment jobs for GitHub Pages.
 
-<span class="page-button-container">
-  <button data-script-name="gh-pages.yml" onclick="fetchAndDisplayScript('script-content-gh-pages', 'https://raw.githubusercontent.com/kingting/gh-pages/main/.github/workflows/gh-pages.yml', this)" class="page-button">Show gh-pages.yml</button>
-</span>
-<div id="script-content-gh-pages" style="display:none; white-space: pre-wrap;"></div>
+<!-- Start Button -->
+[.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml)
+<!-- End Button -->
 
 ### 4. Test Locally
 
