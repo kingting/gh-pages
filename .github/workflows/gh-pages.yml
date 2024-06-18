@@ -32,9 +32,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Debug Environment Variables
-        run: env
-
       - name: Replace links with diplay button in README.md
         uses: kingting/link-to-button@main
         with:
@@ -46,9 +43,7 @@ jobs:
         run: |
           chmod +x .github/scripts/init-jekyll.sh
           .github/scripts/init-jekyll.sh
-          cat _config.yml
-          cat _layouts/default.html
-          cat Gemfile
+          # Debugging the final output
           cat index.md
 
       - name: Setup Ruby
