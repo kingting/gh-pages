@@ -14,7 +14,9 @@ cat README.md >> index.md
 # Include javascript 
 #----------------------------------------------------------------------------------
 echo "{% raw %}"  >> index.md
+echo "<script>" >> index.md
 cat .github/scripts/script.js >> index.md
+echo "</script>" >> index.md
 echo "{% endraw %}"  >> index.md
 
 #----------------------------------------------------------------------------------
