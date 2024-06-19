@@ -37,6 +37,11 @@ jobs:
         with:
           input-file: 'README.md'
           output-file: 'README.md'
+          debug: true
+
+      - name: Output README.md after links replacement 
+        run: |
+          cat README.md
 
       # Convert README.md to index.md and any other additional data	
       - name: Initialise repo to allow Jekyll to build 
@@ -44,6 +49,10 @@ jobs:
           chmod +x .github/scripts/init-jekyll.sh
           .github/scripts/init-jekyll.sh
           # Debugging the final output
+          cat index.md
+
+      - name: Output index.md after Jekyll init 
+        run: |
           cat index.md
 
       - name: Setup Ruby
