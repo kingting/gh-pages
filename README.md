@@ -48,10 +48,10 @@ Create a script [.github/scripts/init-jekyll.sh](https://github.com/kingting/gh-
 
 ### 3. Configure GitHub Actions Workflows to build Jekyll site and deploy to GitHub Pages
 
-Create a GitHub Actions workflow at [.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml) that includes build and deployment jobs for GitHub Pages.
+Create a GitHub Actions workflow at [.github/workflows/main.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/main.yml) that includes build and deployment jobs for GitHub Pages.
 
 <!-- Start Button -->
-[.github/workflows/gh-pages.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/gh-pages.yml)
+[.github/workflows/main.yml](https://github.com/kingting/gh-pages/blob/main/.github/workflows/main.yml)
 <!-- End Button -->
 
 ### 4. Test Locally
@@ -142,7 +142,7 @@ By following this guide, you can automate the publishing of your `README.md` to 
 The blog includes practical scripts and configuration files that you can use to set up your own automated publishing process. These include:
 
 - **Jekyll Configuration (`_config.yml`)**: Setting up your Jekyll site with themes and plugins.
-- **GitHub Actions Workflow (`.github/workflows/gh-pages.yml`)**: Automating the build and deployment process.
+- **GitHub Actions Workflow (`.github/workflows/main.yml`)**: Automating the build and deployment process.
 - **Custom Scripts ('.github/scripts/*')**: Enhancing functionality and content management.
 
 By following this comprehensive guide, you will be equipped with the knowledge and tools to seamlessly publish your `README.md` as a dynamic and optimized GitHub Pages site.
